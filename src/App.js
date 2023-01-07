@@ -1,12 +1,16 @@
 import './App.css';
+import {GameFormSubmit} from './Components/GameFormSubmit';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Hello World
-      </h1>
-    </div>
+      <div className="GameBody">
+        <h1>
+          Welcome To Game Rator 
+        </h1>
+        <GameFormSubmit/>
+      </div>
+   
   );
 }
 
