@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GameFormUpadte() {
+function GameFormUpdate() {
   const [gameTitle, setGameTitle] = useState('');
   const [ratings, setRatings] = useState('');
   const [review, setReview] = useState('');
@@ -16,7 +16,7 @@ function GameFormUpadte() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onUpdateForm={UpdateForm}>
       <label>
         Game Title:
         <input
