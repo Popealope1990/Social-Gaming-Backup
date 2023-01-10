@@ -1,50 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function GameFormUpdate() {
-  const [gameTitle, setGameTitle] = useState('');
-  const [ratings, setRatings] = useState('');
-  const [review, setReview] = useState('');
+ 
 
   const UpdateForm = (event) => {
     event.preventDefault();
     // do something with the form data here
+    alert('Your Game Rating has been updated')
   }
 
   const DeleteForm = (event) => {
     event.preventDefault();
     // do something with the form data here
+    alert('Your Game Rating has been deleted')
   }
 
   return (
-    <form onUpdateForm={UpdateForm}>
-      <label>
-        Game Title:
-        <input
-          type="text"
-          value={gameTitle}
-          onChange={(event) => setGameTitle(event.target.value)}
-        />
-      </label>
+    <form action={`/GameTitle/Rating/Review`} method="PUT" onUpdateForm={UpdateForm}>
+      <div>
+        <label htmlFor='GameTitle' id='GameTitle'>
+          Game Title:
+        <input type="text" name='GameTitle' id="GameTitle"/>
+        </label>
+      </div>
       <br />
-      <label>
-        Ratings:
-        <input
-          type="text"
-          value={ratings}
-          onChange={(event) => setRatings(event.target.value)}
-        />
-      </label>
+      <div>
+        <label htmlFor='Rating' id='Rating'>
+          Rating:
+          <input
+            type="number" name='Rating' id="Rating"/>
+        </label>
+      </div>
       <br />
-      <label>
-        Review:
-        <textarea
-          value={review}
-          onChange={(event) => setReview(event.target.value)}
-        />
-      </label>
+      <div>
+        <label htmlFor='Review' id='Review'>
+          Review:
+          <textarea type="text" name='Review' id="Review"/>
+        </label>
+      </div>
       <br />
-      <button onClick={UpdateForm}>Update Form</button>
-      <button onClick={DeleteForm}>Delete Form</button>
+      <button type='submit' onClick={UpdateForm}>Update</button>
+      <button type='submit' onClick={DeleteForm}>Delete</button>
+
+      {/* <input type="submit" value="Update"></input>
+      <input type="submit" value="Delete"></input> */}
+      
+     
+     
     </form>
   );
 }

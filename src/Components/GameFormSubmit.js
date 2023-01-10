@@ -1,44 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function GameFormSubmit() {
-  const [gameTitle, setGameTitle] = useState('');
-  const [ratings, setRatings] = useState('');
-  const [review, setReview] = useState('');
+
 
   const SubmitForm = (event) => {
     event.preventDefault();
     // do something with the form data here
+    alert('Your Game Rating has been submited')
   }
 
   return (
-    <form onSubmit={SubmitForm}>
-      <label>
-        Game Title:
-        <input
-          type="text"
-          value={gameTitle}
-          onChange={(event) => setGameTitle(event.target.value)}
-        />
-      </label>
+    <form action={`/GameTitle/Rating/Review`} method="POST" onSubmit={SubmitForm}>
+     <div>
+        <label htmlFor='GameTitle' id='GameTitle'>
+            Game Title:
+        <input type="text" name='GameTitle' id="GameTitle"/>
+        </label>
+      </div>
       <br />
-      <label>
-        Ratings:
+      <div>
+      <label htmlFor='Rating' id='Rating'>
+        Rating:
         <input
-          type="text"
-          value={ratings}
-          onChange={(event) => setRatings(event.target.value)}
-        />
+          type="number" name='Rating' id="Rating"/>
       </label>
+      </div>
       <br />
-      <label>
+      <div>
+      <label htmlFor='Review' id='Review'>
         Review:
-        <textarea
-          value={review}
-          onChange={(event) => setReview(event.target.value)}
-        />
+        <textarea type="text" name='Review' id="Review"/>
       </label>
+      </div>
       <br />
-      <button onClick={SubmitForm}>Submit Form</button>
+      {/* <button type='submit' onClick={SubmitForm}>Submit</button> */}
+
+      <input type='submit' value='Submit'></input>
     </form>
   );
 }
